@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+    <title>VR 360——个人中心</title>
+    <link rel="stylesheet" href="../vendors/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../vendors/jquery-confirm/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../build/css/personPageStyle.css">
+    <link rel="stylesheet" href="../vendors/paging/css/jquery.pagination.css">
+    <link rel="stylesheet" href="../build/css/globalStyle.css">
+    <style>
+        .navbar-inverse {
+            background-color: #27253d;
+            border-color: #080808 !important;
+        }
+        input[type="text"],input[type="password"]{
+            border-radius: 0;
+        }
+        input[type="password"]{
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0c4e3834703d8f9400719f6478203d3e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="border-radius: 0;margin-bottom: 0;">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">VR 360</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="community.html">社区 </a></li>
+                <li><a href="learning.html">教程 </a></li>
+                <li><a href="create360.html">创作中心 </a></li>
+                <li><a href="sicau360.html">川农</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="message-board.html">留言墙</a></li>
+                <li><a href="statistics.html">数据中心</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 20px;"></i>&nbsp;&nbsp;<span id="user_status">未登录</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personpage.html">个人中心</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li id="user_action"><a href="javascript:logout();">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--主体部分-->
+<div class="main-body container-fluid" style="padding: 0;margin: 0">
+    <div class="main-header">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="background: rgba(0,0,0,0.3);height: 100%">
+            <div class="col-xs-12 col-sm-10 col-md-10  col-sm-offset-1 col-md-offset-1 userIndexBox">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-4" align="center">
+                        <img src="../images/logo/head.png" class="img-circle img-thumbnail" id="userHeadImg">
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6" style="color: whitesmoke;margin: 0;padding: 0">
+                        <h2 id="userName">VR 360</h2>
+                        <p class="usersex"><small><i class="fa fa-venus-mars" aria-hidden="true"></i>&nbsp;&nbsp;保密</small></p>
+                        <p id="personDes">随心创作，随处分享</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 buttonContainer" align="center" style="margin-top: 20px;">
+                    <ul class="navList">
+                        <li>
+                            <div class="about-data-des">关注</div>
+                            <span class="about-data-num" id="follow">0</span>
+                        </li>
+                        <li>
+                            <div class="about-data-des">粉丝</div>
+                            <span class="about-data-num" id="fans">0</span>
+                        </li>
+                        <li>
+                            <div class="about-data-des">作品</div>
+                            <span class="about-data-num" id="works">0</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0;margin: 0;background: #f5f5f5;">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="padding: 0">
+            <div class="col-sm-2 col-md-2 navList-left">
+                <div class="navListBar"><span onclick="barShowAndHide()"><i class="fa fa-bars" aria-hidden="true"></i></span></div>
+                <ul class="nav-list">
+                    <li class="leftBarActive"><a href="javascript:showMyIndex('person');"><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;我的主页</a></li>
+                    <li><a href="javascript:showMyIndex('create');"><i class="fa fa-linode" aria-hidden="true"></i>&nbsp;我的创作</a></li>
+                    <li><a href="javascript:showMyIndex('fans');"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;我的粉丝</a></li>
+                    <li><a href="javascript:showMyIndex('likeSomeOne');"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;关注的人</a></li>
+                    <li><a href="javascript:showMyIndex('setting');"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;个人设置</a></li>
+                    <li><a href="javascript:showMyIndex('message');"><i class="fa fa-envelope-open" aria-hidden="true"></i>&nbsp;消息中心</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-10 col-md-10" style="background-color: white;min-height: 600px;padding: 8px;">
+                <div class="col-xs-12 col-sm-12 col-md-12" id="mainContainer">
+                    <!--我的主页-->
+                    <div align="center" style="margin-top: 145px;">
+                        <img src="../images/source/upload-null.png" alt="">
+                        <p>您还没有上传作品，快去上传吧！</p>
+                        <div class="button uploadBtn" onclick="location.href='create360.html'">立即上传</div>
+                    </div>
+                    <!--<div align="center" style="margin-top: 145px;">-->
+                        <!--<img src="../images/source/fighting.png" style="width: 200px;"><br><br>-->
+                        <!--<p>作者正在努力制作中，敬请期待！</p>-->
+                        <!--<div class="button uploadBtn" onclick="location.href='community.html'">社区逛逛</div>-->
+                    <!--</div>-->
+                    <!--我的创作-->
+                    <!--<div>-->
+                        <!--<ul class="nav nav-tabs statsBar">-->
+                            <!--<li role="presentation" class="active"><a href="javascript:changeStats(1)">待审核</a></li>-->
+                            <!--<li role="presentation"><a href="javascript:changeStats(2)">已通过</a></li>-->
+                            <!--<li role="presentation"><a href="javascript:changeStats(3)">未通过</a></li>-->
+                        <!--</ul>-->
+                        <!--<div class="col-xs-12 col-sm-12 col-md-12" id="photoContainer">-->
+                            <!--<div class="col-xs-6 col-sm-4 col-md-4" style="padding: 5px;margin: 0;">-->
+                                <!--<div style="position: relative"><div class="recommendIcon recommendHide">推荐</div></div>-->
+                                <!--<a href="#" class="img-link" style="background-image: url('https://static.insta360.com/assets/operation/0179/5a0653767870e16cfc191bca2b5b9229/2dfd9413ffbca4fb9f57de1fdc71d33d.jpg')"></a>-->
+                                <!--<div class="descr-container" >去三亚的第一次体验</div>-->
+                                <!--<div class="photoInfo">-->
+                                    <!--<ul>-->
+                                        <!--<li><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span>0</span></li>-->
+                                        <!--<li><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;<span>0</span></li>-->
+                                    <!--</ul>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--我的点赞-->
+                    <!--<div>-->
+                        <!--<div class="col-xs-6 col-sm-4 col-md-4" style="padding: 5px;margin: 0;">-->
+                        <!--<a href="#" class="img-link" style="background-image: url('https://static.insta360.com/assets/operation/0179/5a0653767870e16cfc191bca2b5b9229/2dfd9413ffbca4fb9f57de1fdc71d33d.jpg')"></a>-->
+                        <!--<div class="author-msg"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;<span style="color: #f4f9f4">北风</span></div>-->
+                        <!--<div class="descr-container" >去三亚的第一次体验</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--个人设置-->
+                    <!--<div>-->
+                        <!--<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">-->
+                            <!--<form class="form-horizontal" id="changeForm">-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="col-xs-6 col-sm-3 col-md-3 control-label">账户</label>-->
+                                    <!--<div class="col-xs-6 col-sm-9 col-md-9" id="authId" style="color: #312b30;font-size: 15px;line-height: 36px">-->
+                                        <!--17321914392-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="change_username" class="col-xs-12 col-sm-3 col-md-3 control-label">用户名</label>-->
+                                    <!--<div class="col-xs-12 col-sm-9 col-md-6">-->
+                                        <!--<input type="text" class="form-control" name="change_username" id="change_username" placeholder="请输入你的用户名">-->
+                                        <!--<span class="input-warning"></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="col-xs-12 col-sm-3 col-md-3 control-label">性别</label>-->
+                                    <!--<div class="col-xs-12 col-sm-9 col-md-9" id="change_sex">-->
+                                        <!--<label style="margin-left: 30px;" title="男孩">-->
+                                            <!--<i class="fa fa-mars" aria-hidden="true" style="color: blueviolet;font-size: 20px"></i>&nbsp;&nbsp;-->
+                                            <!--<input type="radio" name="change_sex" value="b">-->
+                                        <!--</label>-->
+                                        <!--<label style="margin-left: 30px;" title="女孩">-->
+                                            <!--<i class="fa fa-venus" aria-hidden="true" style="color: red;font-size: 20px"></i>&nbsp;&nbsp;-->
+                                            <!--<input type="radio" name="change_sex" value="g">-->
+                                        <!--</label>-->
+                                        <!--<label style="margin-left: 30px;" title="保密">-->
+                                            <!--<i class="fa fa-venus-mars" aria-hidden="true" style="color: #1b6d85;font-size: 20px"></i>&nbsp;&nbsp;-->
+                                            <!--<input type="radio" name="change_sex" value="s">-->
+                                        <!--</label>-->
+                                        <!--<span class="input-warning"></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="change_describe" class="col-xs-12 col-sm-3 col-md-3 control-label">个性签名</label>-->
+                                    <!--<div class="col-xs-12 col-sm-9 col-md-9">-->
+                                        <!--<input type="text" class="form-control" name="change_describe" id="change_describe" placeholder="编辑你的个性签名">-->
+                                        <!--<span class="input-warning"></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="col-xs-6 col-sm-3 col-md-3 control-label">注册时间:</label>-->
+                                    <!--<div class="col-xs-6 col-sm-9 col-md-9" id="registerTime" style="color: #74dac6;font-size: 15px;line-height: 36px">-->
+                                        <!--2018年8月3日-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="col-xs-6 col-sm-3 col-md-3 control-label">注册方式:</label>-->
+                                    <!--<div class="col-xs-6 col-sm-9 col-md-9" id="registerType" style="color: #74dac6;font-size: 15px;line-height: 36px">-->
+                                        <!--QQ-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div align="center"><a href="javascript:changePassword();">修改密码</a></div>-->
+                                <!--<div id="changePasswordContainer" class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" align="center">-->
+                                    <!--<input type="password" class="form-control" name="oldPassword" placeholder="输入旧密码">-->
+                                    <!--<input type="password" class="form-control" name="newPassword" placeholder="输入新密码">-->
+                                    <!--<input type="password" class="form-control" name="newPassword" placeholder="再次输入新密码">-->
+                                    <!--<span class="input-warning"></span>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 50px;">-->
+                                    <!--<div class="saveBtn" onclick="saveChange()">保存</div>-->
+                                <!--</div>-->
+                            <!--</form>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--暂未登陆-->
+                    <!--<div align="center" style="margin-top: 145px;">-->
+                        <!--<img src="../images/source/error.png" style="width: 220px">-->
+                        <!--<p>阿偶~出错了，您还未登录</p>-->
+                        <!--<div class="button uploadBtn" onclick="showLoginBox()">立即登录</div>-->
+                    <!--</div>-->
+
+                    <!--消息中心-->
+                    <!--<div>-->
+                        <!--<h4>全部消息（ <span class="msgNum " id="notReadMes">2</span> / <span class="msgNum " id="totalMes">3</span> ）</h4>-->
+                        <!--<ul id="msgContainer">-->
+                            <!--<li>-->
+                                <!--<div class="msgList row">-->
+
+                                    <!--<div  class="col-xs-12 col-sm-6 col-md-6">-->
+                                        <!--<div>-->
+                                            <!--<div class="msgNot"></div>-->
+                                            <!--<span class="msgType">[公告]</span>&nbsp;&nbsp;-->
+                                            <!--<span class="msgTile">-->
+                                            <!--<a href="">VR 360用户问卷调查</a></span>-->
+                                            <!--<span class="msgTime">06月6日 23:00</span></div>-->
+                                        <!--<div class="msgDes">VR 360用户问卷调查</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-xs-12 col-sm-6 col-md-6" align="center">-->
+                                        <!--<a href=""><img src="https://vr360-beifengtz.oss-cn-beijing.aliyuncs.com/vrphoto/ddc41f8a07da4bc8bca3555ddf3e04a7-17321914392-single.jpg?x-oss-process=style/vr-thumbnail"-->
+                                                        <!--alt="" class="msgImg"></a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+
+                    <!--<div class="noticeFont">您暂无关注的人</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer" align="center">
+    <div class="footer-container">
+        <h1><a href="../index.html">VR 360</a></h1>
+        <p>随心创作 随处分享 <a href="statistics.html" title="前往VR360数据中心"><img src="../images/source/statistics.png"></a></p>
+        <ul>
+            <li><a href="" title="QQ" target="_blank" id="clientQQ"><img src="../images/logo/qq.png" alt="qq"></a></li>
+            <li><a href="../p/mywechat.html" title="微信" target="_blank"><img src="../images/logo/weixin.png" alt="weixin"></a></li>
+            <li><a href="https://m.weibo.cn/p/1005056053577165" title="微博" target="_blank"><img src="../images/logo/weibo.png" alt="weibo"></a></li>
+        </ul>
+        <div class="copyRight">
+            CopyRight © 2018 <a href="http://www.beifengtz.com">beifengtz</a> 蜀ICP备17034479号-1
+        </div>
+
+    </div>
+</div>
+
+<!-- 阅读器Modal -->
+<div class="modal fade" id="readerModal" tabindex="-1" role="dialog" aria-labelledby="readerModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="readerModalLabel">消息阅读器</h4>
+            </div>
+            <div class="modal-body">
+                <span class="msgTime">06月6日 23:00&nbsp;&nbsp;&nbsp;</span>VR 360用户问卷调查
+                <div align="center">
+                    <a href=""><img src="https://vr360-beifengtz.oss-cn-beijing.aliyuncs.com/vrphoto/ddc41f8a07da4bc8bca3555ddf3e04a7-17321914392-single.jpg?x-oss-process=style/vr-thumbnail"
+                                    alt="" style="width: 80%;margin: 15px;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bg-mask">
+
+</div>
+<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 login-container">
+    <div class="login-box">
+        <button type="button" class="close" aria-label="Close" onclick="hideLoginBox()"><span aria-hidden="true">&times;</span></button>
+        <div class="container-fluid" style="margin-top: 20px;">
+            <div id="loginAndRegister">
+                <div align="center" >
+                    <h2>欢迎登录VR360</h2>
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">手机号</label>
+                    <input type="number" class="form-control" id="loginPhone" placeholder="输入你的手机号">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="输入你的密码">
+                </div>
+                <nav aria-label="...">
+                    <ul class="pager" >
+                        <li class="previous"><a href="#" style="color: #FA9856">找回密码</a></li>
+                        <li class="next"><a href="javascript:goRegister();" style="color: #FA9856">去注册 </a></li>
+                    </ul>
+                </nav>
+                <div align="center">
+                    <button class="btn btn-default" style="width: 100%;background-color: #FA9856;color:white;" onclick="login()">登录</button>
+                </div>
+            </div>
+
+            <div align="center" style="margin-bottom: -16px;color: #777;margin-top: 20px;border-bottom: solid 1px ">
+                <small>第三方登录</small>
+            </div>
+            <div align="center" class="thirdLoginList">
+                <ul>
+                    <li>
+                        <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101473485&redirect_uri=https://vr.beifengtz.com/p/personpage.html&state=qq"><img src="../images/logo/qq.png" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="https://api.weibo.com/oauth2/authorize?client_id=2791069346&response_type=code&redirect_uri=https://vr.beifengtz.com/p/personpage.html?state=weibo"><img src="../images/logo/weibo.png" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--提示模态框-->
+<div id="msgModal">
+    请输入验证码
+</div>
+
+<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+<script>
+    var ip;
+    /**
+     * 获取ip地址
+     * */
+    function getIpAddress(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("get","https://vr.beifengtz.com/getIp",false);
+        xmlhttp.send();
+        if (xmlhttp.status==200)
+        {
+            ip = xmlhttp.responseText;
+        }
+    }
+</script>
+<script src="../vendors/jQuery/jquery-1.11.3.min.js"></script>
+<script src="../vendors/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="../vendors/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../build/js/gVerify.js"></script>
+<script src="../build/js/tzutil.min.js"></script>
+<script src="../vendors/modernizr/modernizr-custom.js"></script>
+<script src="../build/js/login.min.js"></script>
+<script src="../vendors/paging/js/jquery.pagination.min.js"></script>
+<script src="../build/js/readyPersonPage.min.js"></script>
+</body>
+</html>

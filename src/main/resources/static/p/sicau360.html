@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全景川农</title>
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="http://indoorweb.amap.com/indoormap-1.2.css" />
+    <link rel="stylesheet" href="../build/css/sicau360Style.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0c4e3834703d8f9400719f6478203d3e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div id="mapContainer"></div>
+<div id="7she"></div>
+
+<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+<script>
+    var ip;
+    /**
+     * 获取ip地址
+     * */
+    function getIpAddress(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("get","https://vr.beifengtz.com/getIp",false);
+        xmlhttp.send();
+        if (xmlhttp.status==200)
+        {
+            ip = xmlhttp.responseText;
+        }
+    }
+</script>
+<script type="text/javascript" src="https://indoorweb.amap.com/indoormap-1.2.js"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.6&key=4a3f514691b996a3d97c0da01a9b8741&plugin=AMap.ControlBar"></script>
+<script src="../build/js/readySicau360.min.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?0c4e3834703d8f9400719f6478203d3e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

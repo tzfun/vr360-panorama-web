@@ -1,0 +1,25 @@
+server:
+  port: 443
+  servlet:
+    session:
+      timeout: 3600s
+# HTTPS配置选项
+#  ssl:
+#    key-store: classpath:214960930630807.pfx
+#    key-store-password: 214960930630807
+#    key-store-type: PKCS12
+#    enabled: true
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/vr360?characterEncoding=UTF-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: 数据库用户名
+    password: 数据库密码
+  http:
+    encoding:
+      charset: UTF-8
+  servlet:
+    multipart:
+      max-file-size: 20MB
+logging:
+  file: log/vr360.log

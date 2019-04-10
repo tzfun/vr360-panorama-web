@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+    <title>VR360数据中心</title>
+    <link rel="stylesheet" href="../vendors/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../vendors/jquery-confirm/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../build/css/timeline.css">
+    <link rel="stylesheet" href="../build/css/normalize.min.css">
+    <link rel="stylesheet" href="../build/css/statisticsStyle.css">
+    <link rel="stylesheet" href="../build/css/globalStyle.css">
+</head>
+<body>
+<!--加载动画-->
+<div class="loading-bg loading">
+    <div class="loading-container">
+        <div class='loading-anim'>
+            <div class='border out'></div>
+            <div class='border in'></div>
+            <div class='border mid'></div>
+            <div class='circle'>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-inverse" style="border-radius: 0;">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">VR 360</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="community.html">社区 </a></li>
+                <li><a href="learning.html">教程 </a></li>
+                <li><a href="create360.html">创作中心 </a></li>
+                <li><a href="sicau360.html">川农</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="message-board.html">留言墙</a></li>
+                <li class="active"><a href="statistics.html">数据中心 <span class="sr-only">(current)</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 20px;"></i>&nbsp;&nbsp;<span id="user_status">未登录</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personpage.html">个人中心</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li id="user_action"><a href="javascript:showLoginBox();">登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--主体部分-->
+<div class="container-fluid" style="padding-left: 0;padding-right: 0;">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="padding-left: 0;padding-right: 0;">
+        <div class="page-header">
+            <h1>VR360 <small>数据中心</small></h1>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12" style="font-family: Georgia, serif;" id="addressInfo"></div>
+        <div class="col-xs-6 col-sm-3 col-md-3" align="center">
+            <div class="chart-box col-xs-12 col-sm-12 col-md-12">
+                <img src="../images/source/charts-users.png" style="margin-top: 20px">
+                <div id="usersNum" class="charts-num">
+                    0
+                </div>
+                <div class="chart-box-des" style="background-color: #1afa29;">
+                    用户
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3 col-md-3" align="center">
+            <div class="chart-box col-xs-12 col-sm-12 col-md-12">
+                <img src="../images/source/charts-visit.png" style="margin-top: 20px">
+                <div id="visitNum" class="charts-num">
+                    0
+                </div>
+                <div class="chart-box-des" style="background-color: #d81e06;">
+                    访问
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3 col-md-3" align="center">
+            <div class="chart-box col-xs-12 col-sm-12 col-md-12">
+                <img src="../images/source/charts-pages.png" style="margin-top: 20px">
+                <div id="pagesNum" class="charts-num">
+                    0
+                </div>
+                <div class="chart-box-des" style="background-color: rgb(41,194,135);">
+                    页面
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3 col-md-3" align="center">
+            <div class="chart-box col-xs-12 col-sm-12 col-md-12">
+                <img src="../images/source/charts-works.png" style="margin-top: 20px">
+                <div id="worksNum" class="charts-num">
+                    0
+                </div>
+                <div class="chart-box-des" style="background-color: rgb(110, 114, 223);">
+                    作品
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 50px">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h3>网站已完成</h3>
+                <div id="progressCharts"></div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h3>网站已运行</h3>
+                <div align="center" style="margin: 100px 0;" id="runTime">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 50px">
+            <div id="pagesCharts"></div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0;margin-top: 30px;">
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <div id="dayCharts">
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div id="weekCharts">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 50px">
+            <div id="everydayCharts"></div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4" style="margin-top: 30px;">
+            <div class="panel panel-success">
+                <div class="panel-heading"><h3 style="margin: 0;">作品&nbsp;&nbsp;<small>Top10</small></h3></div>
+                <div class="panel-body" style="min-height: 211px;">
+                    <div class="list-group" id="worksList">
+                        <!--<a href="" class="list-group-item">-->
+                            <!--<span class="badge" style="background-color: #dff0d8">88</span>-->
+                            <!--720全景——走过这座桥你就是最...-->
+                        <!--</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8" style="margin-top: 30px;">
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><h3 style="margin: 0;">城市&nbsp;&nbsp;<small>Top10</small></h3></div>
+
+                <!-- Table -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <!--<th>省份</th>-->
+                            <th>城市</th>
+                            <!--<th>运营商</th>-->
+                            <th>访问数量</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cityList">
+                        <!--<tr>-->
+                            <!--<th>1</th>-->
+                            <!--<td>四川省</td>-->
+                            <!--<td>阿坝州</td>-->
+                            <!--<td>34</td>-->
+                        <!--</tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <section id="cd-timeline" class="cd-container">
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>VR360 V1.0.0发布</h3>
+                        <p>VR360全景共享平台V1.0.0发布，欢迎各位网友前来使用。如对网站有什么疑问或建议，请通过本站留言墙或意见信留言，或者直接联系我本人。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 Sep 1</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>数据中心</h3>
+                        <p>新增数据中心页面，可通过此页面查看本站所有数据。本页设计数据量较大、图表较多，网页响应时间可能较长，为减轻服务器压力设置部分数据更新为定时更新，所以部分数据可能有延迟。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 Aug 4</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>留言</h3>
+                        <p>为了得到更多用户的意见、心声以及活跃度，新增提问留言和留言墙功能，教程留言登陆后便可提问，留言墙可以匿名留言。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 Aug 4</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>网页动画</h3>
+                        <p>为了提升用户体验，部分网页增加动画效果，但仅在支持CSS3的浏览器能体验动画效果，版本较低浏览器可能无法体验。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 Jul 25</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>多模式全景</h3>
+                        <p>网站提供多模式全景制作和浏览功能，制作可有单张图片全景制作和六方位全景制作，浏览全景新增普通、鱼眼、球体、小行星四中模式，新增手机端陀螺仪感应。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 Jun 4</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>OSS</h3>
+                        <p>为了减轻服务器压力，实现负载均衡，图片、文件等静态资源转移至OSS服务器，同时为用户提供更好的全景体验。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 May 21</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>多方式登录</h3>
+                        <p>网站用户可有多个登录方式，初步确定为手机号登录、QQ第三方登录、微博第三方登录。不支持微信登录，但分享可分享至微信、朋友圈、QQ、微博等社交平台。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 May 15</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>网站主题</h3>
+                        <p>网站主题风格确定整体以黑白风格为主，网站按钮、提示、图标等以橙色、蓝色、黄色为主。</p>
+                        <!--<a href="about.html" class="cd-read-more">阅读更多</a>-->
+                        <span class="cd-date">2018 May 11</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../images/source/charts-time.png" alt="Picture">
+                    </div><!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h3>项目启动</h3>
+                        <p>最近痴迷于VR全景图片，微博、手机QQ等平台都支持全景，但是在部分平台（比如微信）想看全景却不容易，为了将全景制作简单化、可随处分享，于是决定开发此网站，同时也是作为个人技能的提升。VR360项目正式启动。</p>
+                        <a href="about.html" class="cd-read-more">阅读更多</a>
+                        <span class="cd-date">2018 Apr 21</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+            </section> <!-- cd-timeline -->
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div class="footer" align="center">
+    <div class="footer-container">
+        <h1><a href="../index.html">VR 360</a></h1>
+        <p>随心创作 随处分享 <a href="statistics.html" title="前往VR360数据中心"><img src="../images/source/statistics.png"></a></p>
+        <ul>
+            <li><a href="" title="QQ" target="_blank" id="clientQQ"><img src="../images/logo/qq.png" alt="qq"></a></li>
+            <li><a href="../p/mywechat.html" title="微信" target="_blank"><img src="../images/logo/weixin.png" alt="weixin"></a></li>
+            <li><a href="https://m.weibo.cn/p/1005056053577165" title="微博" target="_blank"><img src="../images/logo/weibo.png" alt="weibo"></a></li>
+        </ul>
+        <div class="copyRight">
+            CopyRight © 2018 <a href="http://www.beifengtz.com">beifengtz</a> 蜀ICP备17034479号-1
+        </div>
+
+    </div>
+</div>
+
+<!-- 背景过滤模块 -->
+<div id="bg-mask">
+
+</div>
+<!--登录模块-->
+<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 login-container">
+    <div class="login-box">
+        <button type="button" class="close" aria-label="Close" onclick="hideLoginBox()"><span aria-hidden="true">&times;</span></button>
+        <div class="container-fluid" style="margin-top: 20px;">
+            <div id="loginAndRegister">
+                <div align="center" >
+                    <h2>欢迎登录VR360</h2>
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">手机号</label>
+                    <input type="number" class="form-control" id="loginPhone" placeholder="输入你的手机号">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="输入你的密码">
+                </div>
+                <nav aria-label="...">
+                    <ul class="pager" >
+                        <li class="previous"><a href="#" style="color: #FA9856">找回密码</a></li>
+                        <li class="next"><a href="javascript:goRegister();" style="color: #FA9856">去注册 </a></li>
+                    </ul>
+                </nav>
+                <div align="center">
+                    <button class="btn btn-default" style="width: 100%;background-color: #FA9856;color:white;" onclick="login()">登录</button>
+                </div>
+            </div>
+
+            <div align="center" style="margin-bottom: -16px;color: #777;margin-top: 20px;border-bottom: solid 1px ">
+                <small>第三方登录</small>
+            </div>
+            <div align="center" class="thirdLoginList">
+                <ul>
+                    <li>
+                        <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101473485&redirect_uri=https://vr.beifengtz.com/p/personpage.html&state=qq"><img src="../images/logo/qq.png" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="https://api.weibo.com/oauth2/authorize?client_id=2791069346&response_type=code&redirect_uri=https://vr.beifengtz.com/p/personpage.html?state=weibo"><img src="../images/logo/weibo.png" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--提示模态框-->
+<div id="msgModal">
+    请输入验证码
+</div>
+
+<script>
+    var ip;
+    /**
+     * 获取ip地址
+     * */
+    function getIpAddress(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("get","https://vr.beifengtz.com/getIp",false);
+        xmlhttp.send();
+        if (xmlhttp.status==200)
+        {
+            ip = xmlhttp.responseText;
+        }
+    }
+</script>
+<script src="../vendors/echarts/echarts.min.js"></script>
+<script src="../vendors/echarts/echarts-liquidfill.min.js"></script>
+<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+<script src="../vendors/jQuery/jquery-3.3.1.min.js"></script>
+<script src="../vendors/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="../vendors/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../build/js/gVerify.js"></script>
+<script src="../build/js/tzutil.min.js"></script>
+<script src="../vendors/modernizr/modernizr-custom.js"></script>
+<script src="../build/js/login.min.js"></script>
+<script src="../build/js/readyStatistics.min.js"></script>
+</body>
+</html>

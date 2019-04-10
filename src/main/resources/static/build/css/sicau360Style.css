@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+}
+#mapContainer{
+    width: 100%;
+    height: 100%;
+}
+h3{
+    font-size: 1.17em;
+    line-height: 1.4;
+    font-weight: bold;
+    margin: 2px;
+}
+hr{
+    margin: 1px;
+}
+.map{
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+#mapDiv .amap-indoormap-floorbar-control{bottom:10%}

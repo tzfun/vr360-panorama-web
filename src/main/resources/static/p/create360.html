@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+    <title>VR 360——创作属于自己的360全景图</title>
+    <link rel="stylesheet" href="../vendors/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../vendors/360/photo-sphere-viewer.min.css">
+    <link rel="stylesheet" href="../vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../vendors/jquery-confirm/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../build/css/createStyle.css">
+    <link rel="stylesheet" href="../build/css/globalStyle.css">
+    <style>
+        .navbar-inverse {
+            background-color: #27253d;
+            border-color: #080808 !important;
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0c4e3834703d8f9400719f6478203d3e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="border-radius: 0;">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">VR 360</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="community.html">社区 </a></li>
+                <li><a href="learning.html">教程 </a></li>
+                <li class="active"><a href="create360.html">创作中心 </a> <span class="sr-only">(current)</span></li>
+                <li><a href="sicau360.html">川农 </a></li>
+                <li><a href="about.html">关于 </a></li>
+                <li><a href="message-board.html">留言墙</a></li>
+                <li><a href="statistics.html">数据中心</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 20px;"></i>&nbsp;&nbsp;<span id="user_status">未登录</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personpage.html">个人中心</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li id="user_action"><a href="javascript:logout();">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container fluid">
+    <div id="checkBox" align="center">
+        <h1>请选择制作类型</h1>
+        <div class="button button-pre1" onclick="showSingle()">单张全景</div>
+        <div class="button button-pre2" onclick="location.href='create360bysix.html'">六方位全景</div>
+    </div>
+    <div id="mainContainer" style="display: none">
+        <ol class="breadcrumb" style="border-radius: 0;">
+            <li><a href="javascript:toCheck();">选择类型</a></li>
+            <li class="active">单张全景</li>
+        </ol>
+        <div class="msg msg-warning">
+            <h4>温馨提示</h4>
+            <ul>
+                <li>
+                    <p>3D全景制作仅支持image类型文件，其中包含: <code>.jpg</code> <code>.jpeg</code> <code>.png</code></p>
+                </li>
+                <li>
+                    <p>为了达到更好的3D效果，请尽量上传长宽比例等于<code>2:1</code>的图片</p>
+                </li>
+                <li>
+                    <p>上传照片大小不能超过3M，推荐两个在线图片压缩工具：<a href="http://www.yasuotu.com/" target="_blank" title="前往压缩图">压缩图</a>
+                        <a href="http://www.gaitubao.com/" target="_blank" title="前往改图宝">改图宝</a></p>
+                </li>
+            </ul>
+        </div>
+        <form id="uploadFileForm" enctype="multipart/form-data">
+            <input type="file" name="file" id="chooseFile" accept="image/jpeg,image/jpg,image/png">
+        </form>
+        <div class="photoContainer col-xs-12 col-sm-12 col-md-12" align="center">
+            <div class="img-choose">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <img src="../images/source/imgup.png" style="width: 90px;">
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top: 20px;">
+                        <span style="font-size: 21px;color: rgba(120,120,125,0.9)"> 点击选择图片</span>
+                    </div>
+                </div>
+            </div>
+            <img src="" class="img-responsive img-show" id="img-show">
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12" style="padding-left: 0;padding-right: 0;margin-top: 20px;">
+            <div class="col-xs-12 col-sm-12 col-md-12" style="padding-top: 5px;padding-bottom: 5px;">
+                <div class="col-xs-12 col-sm-3 col-md-3 text-muted photoInfo_status">未选择图片</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 text-muted photoInfo_name"></div>
+                <div class="col-xs-12 col-sm-3 col-md-3 text-muted photoInfo_size"></div>
+                <div class="col-xs-12 col-sm-3 col-md-3 text-muted photoInfo_time"></div>
+            </div>
+            <div class="col-xs-6 col-sm-2 col-md-2">
+                <input type="radio" id="photoType_720" name="photoType" value="720" checked/>
+                <label for="photoType_720" style="color: #137083">立体720°全景</label>
+            </div>
+            <div class="col-xs-6 col-sm-2 col-md-2">
+                <input type="radio" id="photoType_360" name="photoType" value="360"/>
+                <label for="photoType_360" style="color: #137083">水平360°全景</label>
+            </div>
+            <div class="form-group" style="margin-top: 75px;">
+                <input type="email" maxlength="128" class="form-control" id="vrPhotoDes" placeholder="有什么想说的，跟大家分享一下...">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 col-sm-offset-3">
+                <div class="col-xs-12 col-sm-6 col-md-6" align="center">
+                    <div class="button" id="create360" align="center" onclick="createVrPhoto()">
+                        预览效果
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6" align="center">
+                    <div class="button" id="upload360" align="center" onclick="uplodaFile()">
+                        上传全景
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12" id="msg-container" style="margin-top: 20px;">
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12" id="PSV_demo_container">
+
+        </div>
+    </div>
+</div>
+<div id="bg-mask">
+
+</div>
+<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 login-container">
+    <div class="login-box">
+        <button type="button" class="close" aria-label="Close" onclick="hideLoginBox()"><span aria-hidden="true">&times;</span></button>
+        <div class="container-fluid" style="margin-top: 20px;">
+            <div id="loginAndRegister">
+                <div align="center" >
+                    <h2>欢迎登录VR360</h2>
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">手机号</label>
+                    <input type="number" class="form-control" id="loginPhone" placeholder="输入你的手机号">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="输入你的密码">
+                </div>
+                <nav aria-label="...">
+                    <ul class="pager" >
+                        <li class="previous"><a href="#" style="color: #FA9856">找回密码</a></li>
+                        <li class="next"><a href="javascript:goRegister();" style="color: #FA9856">去注册 </a></li>
+                    </ul>
+                </nav>
+                <div align="center">
+                    <button class="btn btn-default" style="width: 100%;background-color: #FA9856;color:white;" onclick="login()">登录</button>
+                </div>
+
+                <!--<div align="center" >-->
+                <!--<h2>欢迎注册VR360</h2>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                <!--<label for="loginPhone">手机号</label>-->
+                <!--<input type="number" class="form-control" id="registerPhone" placeholder="输入你的手机号">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                <!--<label for="loginPassword">密码</label>-->
+                <!--<input type="password" class="form-control" id="registerPassword" placeholder="输入你的密码">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                <!--<label for="loginPassword">通信令牌</label><small>(获取手机验证码使用)</small>-->
+                <!--<div class="col-xs-12 col-sm12 col-md-12">-->
+                <!--<div class="col-xs-6 col-sm6 col-md-6" style="padding: 0">-->
+                <!--<input type="text" id="code_input" class="form-control" placeholder="请输入验证码"/>-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 col-sm6 col-md-6" id="v_container" style="height: 30px;"></div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group" style="margin-top: 45px;">-->
+                <!--<label for="loginPassword">手机验证</label>-->
+                <!--<div class="col-xs-12 col-sm12 col-md-12" style="margin-top: 5px;">-->
+                <!--<div class="col-xs-6 col-sm6 col-md-6" style="padding: 0">-->
+                <!--<input type="text" id="phone_code_input" class="form-control" placeholder="请输入手机验证码"/>-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 col-sm6 col-md-6">-->
+                <!--<button type="submit" class="btn btn-default"  id="getPhoneCodeBtn" onclick="getPhoneSMS()">获取手机验证码&nbsp;<span id="daojishi"></span></button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<nav aria-label="...">-->
+                <!--<ul class="pager" >-->
+                <!--<li class="next"><a href="javascript:goLogin();" style="color: #FA9856">去登录 </a></li>-->
+                <!--</ul>-->
+                <!--</nav>-->
+                <!--<div align="center">-->
+                <!--<button type="submit" class="btn btn-default" style="width: 100%;background-color: #FA9856;color:white;" id="registerBtn">注册</button>-->
+                <!--</div>-->
+            </div>
+
+            <div align="center" style="margin-bottom: -16px;color: #777;margin-top: 20px;border-bottom: solid 1px ">
+                <small>第三方登录</small>
+            </div>
+            <div align="center" class="thirdLoginList">
+                <ul>
+                    <li>
+                        <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101473485&redirect_uri=https://vr.beifengtz.com/p/personpage.html&state=qq"><img src="../images/logo/qq.png" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="https://api.weibo.com/oauth2/authorize?client_id=2791069346&response_type=code&redirect_uri=https://vr.beifengtz.com/p/personpage.html?state=weibo"><img src="../images/logo/weibo.png" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="msgModal">
+    请输入验证码
+</div>
+
+<div class="modal fade" id="myChooseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body" id="modalContent">
+                上传中，请不要关闭......
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+<script>
+    var ip;
+    /**
+     * 获取ip地址
+     * */
+    function getIpAddress(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("get","https://vr.beifengtz.com/getIp",false);
+        xmlhttp.send();
+        if (xmlhttp.status==200)
+        {
+            ip = xmlhttp.responseText;
+        }
+    }
+</script>
+<script src="../vendors/jQuery/jquery-3.3.1.min.js"></script>
+<script src="../vendors/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="../vendors/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../vendors/360/three.min.js"></script>
+<script src="../vendors/360/D.min.js"></script>
+<script src="../vendors/360/uevent.min.js"></script>
+<script src="../vendors/360/doT.min.js"></script>
+<script src="../vendors/360/canvasRenderer.js"></script>
+<script src="../vendors/360/Projector.js"></script>
+<script src="../build/js/DeviceOrientationControls.js"></script>
+<script src="../vendors/360/photo-sphere-viewer.min.js"></script>
+<script src="../build/js/gVerify.js"></script>
+<script src="../build/js/tzutil.min.js"></script>
+<script src="../vendors/modernizr/modernizr-custom.js"></script>
+<script src="../build/js/login.min.js"></script>
+<script src="../build/js/readyCreate.min.js"></script>
+</body>
+</html>

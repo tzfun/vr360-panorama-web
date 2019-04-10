@@ -1,0 +1,322 @@
+/**{*/
+    /*font-family: Georgia, serif !important;*/
+/*}*/
+
+
+.img-link{
+    display: block;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    background-size: 100% 100%;
+    background-position: 50%;
+    padding-bottom: 56.25%;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+}
+.img-link:hover{
+    transition: all 0.3s ease;
+    background-size: 120% 120%;
+}
+.author-msg{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    color: whitesmoke;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+.descr-container{
+    float: left;
+    margin-top: 8px;
+    font-size: 14px;
+    color: rgba(0,0,0,.7);
+    line-height: 18px;
+    font-weight: 600;
+    height: 36px;
+    overflow: hidden;
+}
+.carousel-img{
+    width: 100%;
+    max-height: 500px !important;
+}
+.start-icon{
+    width: 100px;
+    position: absolute;
+    z-index: -1;
+}
+.start-icon:nth-of-type(1){
+    right: 193px;
+    top: -10px;
+}
+.start-icon:nth-of-type(2){
+    top: 10px;
+    left: 80px;
+}
+.start-icon:nth-of-type(3){
+    left: 310px;
+    top:100px;
+}
+@media screen and (max-width: 789px) {
+    .start-icon{
+        width: 65px;
+        position: absolute;
+    }
+    .start-icon:nth-of-type(1){
+        right:17px;
+        top: -10px;
+    }
+    .start-icon:nth-of-type(2){
+        top: 10px;
+        left: 32px;
+    }
+    .start-icon:nth-of-type(3){
+        left:163px;
+        top: 185px;
+        width: 127px;
+    }
+}
+#startCreate{
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background:radial-gradient(white,#93deff);
+    color: #090089;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    margin-top: 115px;
+}
+.loading-box{
+    margin: 70px;
+}
+.loader {
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: helvetica, arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #99ddcc;
+    letter-spacing: 0.2em;
+}
+.loader::before, .loader::after {
+                content: "";
+                display: block;
+                width: 15px;
+                height: 15px;
+                background: #99ddcc;
+                position: absolute;
+                animation: load .7s infinite alternate ease-in-out;
+            }
+
+.loader::before {
+     top: 0;
+ }
+
+.loader::after {
+     bottom: 0;
+ }
+@keyframes load {
+    0% { left: 0; height: 30px; width: 15px }
+    50% { height: 8px; width: 40px }
+    100% { left: 235px; height: 30px; width: 15px}
+}
+.wait-loading{
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: white;
+}
+
+
+.banner{
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    background: url("../../images/bg/banner-bg.jpg") 50% 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.banner-bg{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5823);
+    color:white;
+    font-family: Georgia, serif !important;
+}
+.banner p{
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: .15em;
+}
+/*手机*/
+@media screen and (max-width: 767px){
+    .loading-anim{
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .vr-img {
+        width: 64px;
+        position: absolute;
+        left: 50%;
+        margin-left: -32px;
+        top: 50%;
+        margin-top: -32px;
+    }
+    .banner-bg{
+        text-align: center;
+    }
+    .banner-text{
+        margin-top: 65px;
+    }
+}
+/*平板*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .banner-text{
+        margin-top: 220px;
+    }
+    .loading{
+        margin-top: 35px;
+    }
+    .vr-img{
+        width: 100px;
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 50%;
+        margin-top: -50px;
+    }
+}
+/*电脑*/
+@media screen and (min-width: 992px) {
+    .banner-text{
+        margin-top: 220px;
+    }
+    .loading{
+        margin-top: 35px;
+    }
+    .vr-img{
+        width: 100px;
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 50%;
+        margin-top: -50px;
+    }
+}
+::selection {
+    color: #fff;
+    background: #f54c53;
+}
+
+
+/*头部动画*/
+.loading-anim {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px) rotateY(-90deg) rotateX(90deg) rotateZ(90deg) scale(0.5);
+    opacity: 0;
+    transition: all .2s ease-out;
+}
+.loading-anim .circle {
+    width: 100%;
+    height: 100%;
+    animation: spin 5s linear infinite;
+}
+.loading-anim .border {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid whitesmoke;
+}
+.loading-anim .out {
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: spin 5s linear reverse infinite;
+}
+.loading-anim .in {
+    top: 18%;
+    left: 18%;
+    width: 64%;
+    height: 64%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    animation: spin 4s linear infinite;
+}
+.loading-anim .mid {
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: spin 3s linear infinite;
+}
+.loading .loading-anim {
+    transform: translateZ(0) rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
+    opacity: 1;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes jitter {
+    0% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(0.7, 0.7);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    75% {
+        transform: scale(1.3, 1.3);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+@keyframes fade-in-out {
+    0% {
+        opacity: 0.8;
+    }
+    25% {
+        opacity: 0.2;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}

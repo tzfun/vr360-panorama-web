@@ -1,0 +1,78 @@
+body,html{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    font-family: 方正兰亭超细黑简体;
+}
+#bg-img{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+.bg-container{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+.msg-container{
+    margin-top: 80px;
+    animation:showAnimation 1s ease;
+    -o-animation: showAnimation 1s ease;
+    -webkit-animation: showAnimation 1s ease;
+    -moz-animation: showAnimation 1s ease;
+}
+.msg-status{
+    color: white;
+}
+.msg-describe{
+    color: white;
+}
+.error-button{
+    width: 200px;
+    height: 40px;
+    color: white;
+    border-radius: 30px;
+    border:1px solid white;
+    line-height: 40px;
+    cursor: pointer;
+}
+.error-button:hover{
+    background-color: #FA9856;
+}
+/*手机*/
+@media screen and (max-width: 789px){
+    .msg-status{
+        font-size: 60px;
+    }
+    .msg-describe{
+        font-size: 15px;
+    }
+    .error-button{
+        margin-top: 46px;
+    }
+}
+/*pc*/
+@media screen and (min-width: 790px){
+    .msg-status{
+        font-size: 100px;
+    }
+    .msg-describe{
+        font-size: 25px;
+    }
+}
+@keyframes showAnimation {
+    0%{
+        opacity: 0;
+        margin-top: -100px;
+    }
+    100%{
+        opacity: 1;
+        margin-top: 80px;
+    }
+}

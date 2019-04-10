@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+    <title>VR360留言板——一起畅言</title>
+    <link rel="stylesheet" href="../vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../build/css/messageBoardStyle.css">
+</head>
+<body>
+    <div class="logo-vr" onclick="location.href='../index.html'" title="前往首页">VR 360</div>
+    <div class="container">
+        <!--<div class="message">-->
+            <!--<img src="../images/source/thumbtack1.png" class="thumbtack">-->
+            <!--&lt;!&ndash;<i class="fa fa-times message-close" aria-hidden="true"></i>&ndash;&gt;-->
+            <!--<p>在这里你可以很方便的制作出具有3D效果的全景图，并且支持两种制作方式：单张全景、六方位全景。</p>-->
+            <!--<div class="sendTime"><i class="fa fa-clock-o" aria-hidden="true"></i>2018-8-7</div>-->
+        <!--</div>-->
+    </div>
+    <img src="../images/source/childPlane.png" class="logo-child">
+    <img src="../images/source/sun.png" class="logo-sun">
+    <input type="text" placeholder="发点留言吧,按回车键发送biubiu~" id="sendMessage" maxlength="76">
+    <div class="waitBar"></div>
+    <div class="notice" onclick="hideNotice()">
+        <img src="../images/source/notice.png">
+    </div>
+    <!--<div class="congratulation" onclick="hideCongratulation()">-->
+        <!--<img src="../images/source/congratulation.png">-->
+    <!--</div>-->
+    <div class="nav-container" align="center">
+        <img src="../images/source/home-btn.png">
+        <ul class="menu-list">
+            <li><a href="community.html">社区 </a></li>
+            <li><a href="learning.html">教程 </a></li>
+            <li><a href="create360.html">创作中心 </a></li>
+            <li><a href="sicau360.html">川农</a></li>
+            <li><a href="about.html">关于</a></li>
+            <li><a href="message-board.html">留言墙</a></li>
+            <li><a href="statistics.html">数据中心</a></li>
+        </ul>
+    </div>
+    <!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+    <script>
+        var ip;
+        /**
+         * 获取ip地址
+         * */
+        function getIpAddress(){
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("get","https://vr.beifengtz.com/getIp",false);
+            xmlhttp.send();
+            if (xmlhttp.status==200)
+            {
+                ip = xmlhttp.responseText;
+            }
+        }
+    </script>
+<script src="../vendors/jQuery/jquery-3.3.1.min.js"></script>
+<script src="../build/js/readyMessageBoard.min.js"></script>
+</body>
+</html>

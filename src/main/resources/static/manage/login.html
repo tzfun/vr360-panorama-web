@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>VR360 Admin Login</title>
+        <meta content="VR360 Management" name="description" />
+        <meta content="Beifeng" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link rel="shortcut icon" href="../images/logo/logo.ico">
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+
+        <style>
+            #msgModal{
+                display: none;
+                position: fixed;
+                z-index: 100000;
+                width: 200px;
+                height: 40px;
+                line-height: 20px;
+                padding: 10px;
+                background: rgba(0,0,0,0.7);
+                top: 200px;
+                color: white;
+                text-align: center;
+                left: 50%;
+                margin-left: -100px;
+            }
+        </style>
+    </head>
+
+
+    <body>
+
+        
+        <!-- Begin page -->
+        <div class="accountbg"></div>
+        <div class="wrapper-page">
+
+            <div class="card">
+                <div class="card-body">
+
+                    <h3 class="text-center mt-0 m-b-15">
+                        <a href="../index.html" class="logo logo-admin">VR360 MANAGEMENT</a>
+                    </h3>
+
+                    <div class="p-3">
+                        <form class="form-horizontal m-t-20" action="">
+
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <input class="form-control" type="text" name="username" id="username" required="" placeholder="Admin">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <input class="form-control" type="password" name="password" id="password" required="" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1">Remember me</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-center row m-t-20">
+                                <div class="col-12">
+                                    <button class="btn btn-danger btn-block waves-effect waves-light" type="button" onclick="adminLogin()">Log In</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div style="text-align: center">
+                        CopyRight &copy; 2018 <a href="http://www.beifengtz.com">beifengtz</a> 蜀ICP备17034479号-1
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="msgModal"></div>
+
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+
+        <!-- login js-->
+        <script src="../build/js/tzutil.min.js"></script>
+        <script src="../build/js/admin/adminlogin.js"></script>
+    </body>
+</html>

@@ -1,0 +1,496 @@
+body,html{
+    padding:0;
+    margin: 0;
+}
+#loading{
+    width: 100%;
+    height: 1000px;
+    position: fixed;
+    z-index: 100000;
+    background: white;
+}
+.main{
+    padding: 0;
+    margin: 0;
+}
+#PSV_show{
+    height: 500px;
+    width: 100%;
+    background: white;
+}
+.firstPageDescrp{
+    display: none;
+    color: black;
+    position: absolute;
+    z-index: 800;
+    top:50px;
+    width: 80%;
+    left: 50%;
+    margin-left: -40%;
+    margin-top: 20px;
+    font-family: 方正兰亭超细黑简体;
+    animation: firstDescription 1.5s ease;
+}
+.firstPageDescrp font{
+    font-size: 61px;
+    font-weight: 900;
+    text-shadow: 1px 1px white, -2px -3px #444;
+}
+#startBtn{
+    border:1px solid white;
+    color: whitesmoke;
+    background: rgba(15,15,15,0.4);
+    width: 160px;
+    height: 40px;
+    font-size:22px;
+    line-height: 40px;
+    padding:4px 4px;
+    cursor: pointer;
+    font-weight: 100;
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear; /* Firefox 4 */
+    -webkit-transition: all 0.3s linear; /* Safari 和 Chrome */
+    -o-transition: all 0.3s linear; /* Opera */
+}
+#startBtn:hover{
+    background: rgba(15,15,15,0.7);
+    border-radius: 100px;
+    color: white;
+    font-weight: 100;
+}
+.aboutMore{
+    margin-top: 66px;
+}
+.anim-icon{
+    position: absolute;
+    width: 50px;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -42px;
+    animation:aboutMore 2s infinite linear;
+    -o-animation: aboutMore 2s infinite linear;
+    -webkit-animation: aboutMore 2s infinite linear;
+    -moz-animation: aboutMore 2s infinite linear;
+}
+.about-icon{
+    width: 26px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: white;
+}
+.icon-left{
+    transform: rotateZ(45deg);
+    margin-right: 13px;
+}
+.icon-right{
+    transform: rotateZ(-45deg);
+    margin-left: 20px;
+    margin-top: -4px;
+
+}
+.secondPage{
+    font-family: 方正兰亭超细黑简体;
+}
+.box{
+    position: relative;
+    perspective: 1000px;
+}
+.box .box-img{
+    transform: rotateY(0);
+    transition: all 0.50s ease-in-out 0s;
+}
+.box:hover .box-img{
+    transform: rotateY(-90deg);
+}
+.box .box-img img{
+    width: 100%;
+    height: auto;
+}
+.box .box-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    transform: rotateY(90deg);
+    transition: all 0.50s ease-in-out 0s;
+}
+.box:hover .box-content{
+    transform: rotateY(0);
+}
+.box .title{
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.box .description{
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+}
+.box .title:after,
+.box .description:after{
+    content: "";
+    width: 80%;
+    display: block;
+    border-bottom: 1px solid #fff;
+    margin: 15px auto;
+}
+.box .social-links{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.box .social-links li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.box .social-links li a{
+    font-size: 20px;
+    color: #a6a6a6;
+}
+.box .social-links li a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+.box{  margin-bottom:20px; }
+
+.yi-box{
+    animation: leftToRight 1.5s ease ;
+    -moz-animation: leftToRight 1.5s ease;
+    -webkit-animation: leftToRight 1.5s ease;
+    -o-animation: leftToRight 1.5s ease;
+}
+.yi-box img{
+    -moz-box-shadow: 5px 5px 9px #888888; /* Firefox */
+    box-shadow: 5px 5px 9px #888888;
+    -webkit-box-shadow:5px 5px 9px #888888;/*webkit*/
+}
+.phone-model{
+    width: 300px;
+    /*opacity: 0;*/
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+.title_3{
+    /*display: none;*/
+    text-shadow: 1px 1px 12px #374955;
+}
+.title_3:nth-of-type(1){
+    animation: toLeft 1s ease ;
+    -moz-animation: toLeft 1s ease;
+    -webkit-animation: toLeft 1s ease;
+    -o-animation: toLeft 1s ease;
+}
+.title_3:nth-of-type(1){
+    animation: toLeft 1.5s linear ;
+    -moz-animation: toLeft 1.5s linear;
+    -webkit-animation: toLeft 1.5s linear;
+    -o-animation: toLeft 1.5s linear;
+}
+.mini-photo-playground{
+    -moz-box-shadow: 9px 9px 12px #888888; /* Firefox */
+    box-shadow: 9px 9px 12px #888888;
+    -webkit-box-shadow:9px 9px 12px #888888;/*webkit*/
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+
+.blockList{
+    /*display: none;*/
+}
+.blockList:nth-of-type(1){
+    animation: toLeft 1.5s linear ;
+    -moz-animation: toLeft 1.5s linear;
+    -webkit-animation: toLeft 1.5s linear;
+    -o-animation: toLeft 1.5s linear;
+}
+.blockList:nth-of-type(2){
+    animation: toRight 1s ease ;
+    -moz-animation: toRight 1s ease;
+    -webkit-animation: toRight 1s ease;
+    -o-animation: toRight 1s ease;
+}
+.fourthPage{
+    font-family: 方正兰亭超细黑简体;
+}
+.fourthPage ul{
+    width: 300px;
+    height: 150px;
+    margin: 0;
+    padding: 5px;
+}
+.fourthPage li{
+    float: left;
+    list-style: none;
+}
+.fourthPage li:nth-of-type(2),.fourthPage li:nth-of-type(3){
+    margin-left: 30px;
+}
+.fourthPage img{
+    width: 80px;
+    -moz-box-shadow: 5px 5px 9px #888888; /* Firefox */
+    box-shadow: 5px 5px 9px #888888;
+    -webkit-box-shadow:5px 5px 9px #888888;/*webkit*/
+}
+.demoTwo{
+    /*opacity: 0;*/
+    transition: opacity linear 0.8s;
+    -webkit-transition: opacity linear 0.8s;
+    -moz-transition: opacity linear 0.8s;
+    -o-transition: opacity linear 0.8s;
+}
+.fifthPage-description{
+    width: 80%;
+    animation: toLeft 1.5s linear ;
+    -moz-animation: toLeft 1.5s linear;
+    -webkit-animation: toLeft 1.5s linear;
+    -o-animation: toLeft 1.5s linear;
+}
+.fifthPage{
+    background: url("../../images/bg/bg2.jpg") 100% 100% no-repeat;
+    background-size: cover;
+    height: 420px;
+    color: white;
+    font-family: 方正兰亭超细黑简体;
+    overflow: hidden;
+}
+.fifthPageBg{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    padding: 5px 40px;
+}
+.fifthPage h1{
+    margin-top: 43px;
+}
+.fifthPage p{
+    font-size: 17px;
+    line-height: 33px;
+    text-align: left;
+}
+@keyframes firstDescription {
+    0%{
+        margin-top: -100px;
+    }
+    50%{
+        margin-top: 100px;
+    }
+    100%{
+        margin-top: 20px;
+    }
+}
+@keyframes leftToRight {
+    0%{
+        opacity: 0;
+        margin-left: -250px;
+    }
+    100%{
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+@keyframes toRight {
+    0%{
+        opacity: 0;
+        margin-left: -150px;
+    }
+    100%{
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+@keyframes toLeft {
+    0%{
+        opacity: 0;
+        margin-right: -150px;
+    }
+    100%{
+        opacity: 1;
+        margin-right: 0;
+    }
+}
+@keyframes aboutMore {
+    0%{
+        margin-top: -59px;
+    }
+    50%{
+        margin-top: -31px;
+    }
+    100%{
+        margin-top: -59px;
+    }
+}
+.psv-navbar{
+    background-color: rgba(0,0,0,0) !important;
+}
+.psv-gyroscope-button{
+    opacity: 0;
+    transform: scale3d(0,0,0);
+}
+
+/*导航条*/
+.header-nav{
+    height: 50px;
+    background:#27253d;
+    color: #9d9d9d;
+    padding: 0;
+    margin: 0;
+}
+.logo-text{
+    display: inline-block;
+    font-size: 21px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.menu-btn{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 20px;
+    margin-top: 8px;
+    z-index: 8000;
+}
+.nav-list{
+    padding: 0;
+    margin-top: 10px;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 10000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    -moz-box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.nav-list li{
+    list-style: none;
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+    background: #27253d;
+}
+.nav-list li:hover{
+    color:white;
+}
+.active{
+    background: #0f0f0f !important;
+    color: white;
+}
+.active a{
+    color: white !important;
+    font-size: 14px;
+}
+.nav-list a{
+    outline: none;
+    color: #9d9d9d;
+    text-decoration: none;
+    padding-left: 20px;
+    display: block;
+    font-size: 14px;
+}
+/*手机*/
+@media screen and (max-width: 767px) {
+    .yi-box{
+        display: none;
+        width: 70%;
+        margin-top: 60px;
+    }
+    .secondPage{
+        min-height: 1100px;
+    }
+    #demoContainerOne{
+        /*opacity: 0;*/
+        position: absolute;
+        z-index: 1000;
+        width: 254px;
+        left: 50%;
+        margin-left: -127px;
+        height: 340px;
+        margin-top: -385px;
+        transition: opacity linear 0.8s;
+        -webkit-transition: opacity linear 0.8s;
+        -moz-transition: opacity linear 0.8s;
+        -o-transition: opacity linear 0.8s;
+    }
+    .thirdPage{
+        background: url("../../images/bg/index-bg.jpg") 80% 50% no-repeat;
+        background-size: auto 100%;
+        color: white;
+        font-family: 方正兰亭超细黑简体;
+        height: 750px;
+    }
+    .mini-photo-playground {
+        width: 284px;
+        display: none;
+    }
+    .blockList,.title_3:nth-of-type(1),.fifthPage-description{
+        display: none;
+    }
+}
+
+/*平板*/
+@media screen and (min-width: 768px) and (max-width: 991px){
+    #PSV_show{
+        height: 520px !important;
+    }
+    .yi-box{
+        width: 33.333%;
+        float: left;
+    }
+    .box{
+        margin: 20px;
+    }
+    .secondPage{
+        min-height: 440px;
+    }
+    .thirdPageContainer{
+        float: left;
+        width: 50%;
+    }
+    .thirdPageContainer:nth-of-type(1){
+        margin-top: 70px;
+    }
+    #demoContainerOne{
+        z-index: 1000;
+        width: 254px;
+        height: 340px;
+        margin-top: -385px;
+        transition: opacity linear 0.8s;
+        -webkit-transition: opacity linear 0.8s;
+        -moz-transition: opacity linear 0.8s;
+        -o-transition: opacity linear 0.8s;
+    }
+    .thirdPage {
+        background: url(../../images/bg/index-bg.jpg) 80% 50% no-repeat;
+        background-size: cover;
+        color: white;
+        font-family: 方正兰亭超细黑简体;
+        height: 585px;
+        width: 100%;
+    }
+    .demoTwo{
+        float: left;
+        width: 50%;
+        margin-top: 30px;
+    }
+    .fourthPage{
+        min-height: 480px;
+    }
+    .mini-photo-playground {
+        width: 80%;
+    }
+}

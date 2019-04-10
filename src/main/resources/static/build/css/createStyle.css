@@ -1,0 +1,155 @@
+body{
+    padding-bottom: 40px;
+}
+#checkBox h1{
+    font-family: 方正兰亭超细黑简体 !important;
+    animation: toRightAnimation 0.3s ease;
+    -moz-animation: toRightAnimation 0.3s ease;
+    -o-animation: toRightAnimation 0.3s ease;
+    -webkit-animation: toRightAnimation 0.3s ease;
+}
+#checkBox{
+    margin-top: 100px;
+}
+.inputContainer{
+    width: 100%;
+    height: 210px;
+    background: white;
+    margin-top: 8px;
+}
+.inputImg{
+    width: 85px;
+}
+.button{
+    height: 40px;
+    border-radius: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    cursor: pointer;
+}
+.button-pre1{
+    width: 200px;
+    border:1px solid #F27370;
+    margin-top: 30px;
+    color: #F27370;
+    animation: toRightAnimation 0.5s ease;
+    -moz-animation: toRightAnimation 0.5s ease;
+    -o-animation: toRightAnimation 0.5s ease;
+    -webkit-animation: toRightAnimation 0.5s ease;
+}
+.button-pre1:hover{
+    border: 1px solid white;
+    background: #FA9856;
+    color: white;
+}
+.button-pre2{
+    width: 200px;
+    border: 1px solid white;
+    background: #F27370;
+    color: white;
+    margin-top: 30px;
+    animation: toRightAnimation 0.7s ease;
+    -moz-animation: toRightAnimation 0.7s ease;
+    -o-animation: toRightAnimation 0.7s ease;
+    -webkit-animation: toRightAnimation 0.7s ease;
+}
+.button-pre2:hover{
+    border:1px solid #38b03f;
+    background: #FA9856;
+}
+@keyframes toRightAnimation {
+    0%{
+        opacity: 0;
+        margin-left: -200px;
+    }
+    100%{
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+.msg{
+    padding: 10px 1px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.msg h4{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.msg-warning{
+    border-left-color: #aa6708;
+}
+.msg-warning h4{
+    color:#aa6708;
+    margin-left: 26px;
+}
+.photoContainer{
+    min-height: 120px;
+    border:1px dashed #7FA99B;
+    cursor: pointer;
+    margin-top: -20px;
+    padding: 10px;
+}
+#chooseFile{
+    opacity: 0;
+    transform: scale3d(0,0,0);
+}
+.chooseFile{
+    opacity: 0;
+    transform: scale3d(0,0,0);
+}
+.img-show{
+    display: none;
+}
+input[type="radio"] + label::before {
+    cursor: pointer;
+    content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 1em;
+    height: 1em;
+    margin-right: .4em;
+    border-radius: 50%;
+    border: 1px solid #FA9856;
+    text-indent: .15em;
+    line-height: 1;
+}
+input[type="radio"]:checked + label::before {
+    background-color: #FA9856;
+    background-clip: content-box;
+    padding: .2em;
+}
+input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+#create360{
+    margin-top: 20px;
+    border: 1px solid #F27370;
+    color: #F27370;
+}
+#create360:hover{
+    border: 1px solid #FA9856;
+    color: #FA9856;
+}
+#upload360{
+    margin-top: 20px;
+    border:1px solid white;
+    background: #F27370;
+    color: white;
+}
+#upload360:hover{
+    background: #FA9856;
+}
+#PSV_demo_container{
+    margin-top: 20px;
+}
+.psv-navbar{
+    background-color: rgba(0,0,0,0);
+}
+.img-choose-head{
+    border-bottom: 1px #222 solid;
+}

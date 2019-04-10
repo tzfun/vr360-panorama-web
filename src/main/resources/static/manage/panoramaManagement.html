@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>VR360 Panorama Management</title>
+    <meta content="VR360 Management" name="description" />
+    <meta content="Beifeng" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+
+    <!-- jvectormap -->
+    <link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../vendors/jquery-confirm/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../vendors/galpop/jquery.galpop.css">
+    <link rel="stylesheet" href="../vendors/paging/css/jquery.pagination.css">
+
+    <style>
+        .btn-mini{
+            min-width: 54px;
+            height: 24px;
+            font-size: 13px;
+            line-height: 12px;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .hide{
+            display: none;
+        }
+        #galpop-content img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+
+<body class="fixed-left">
+
+<!-- Loader -->
+<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+        <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+            <i class="ion-close"></i>
+        </button>
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <div class="text-center">
+                <a href="../index.html" class="logo" target="_blank"> VR360</a>
+            </div>
+        </div>
+
+        <div class="sidebar-inner slimscrollleft">
+
+            <div id="sidebar-menu">
+                <ul>
+
+                    <li>
+                        <a href="index.html" class="waves-effect"><i class="mdi mdi-account-circle m-r-5 text-muted"></i><span> User MGT</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="panoramaManagement.html" class="waves-effect"><i class="mdi mdi-biohazard"></i><span> Panorama MGT </span></a>
+                    </li>
+                    <li>
+                        <a href="messageManagement.html" class="waves-effect"><i class="ti-email noti-icon"></i><span> Message MGT </span></a>
+                    </li>
+                    <li>
+                        <a href="courseManagement.html" class="waves-effect"><i class="mdi mdi-wallet"></i><span> Course MGT </span></a>
+                    </li>
+
+                    <li>
+                        <a href="settings.html" class="waves-effect"><i class="mdi mdi-settings"></i><span> Settings </span></a>
+                    </li>
+                    <li>
+                        <a href="logout.html" class="waves-effect"><i class="mdi mdi-power"></i><span> Logout </span></a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div> <!-- end sidebarinner -->
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- Start right Content here -->
+
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <nav class="navbar-custom">
+
+                    <ul class="list-inline float-right mb-0">
+
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <img src="../images/source/admin-head.png" alt="user" class="rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                <!-- item-->
+                                <div class="dropdown-item noti-title">
+                                    <h5>Welcome</h5>
+                                </div>
+                                <a class="dropdown-item" href="index.html"><i class="mdi mdi-account-circle"></i><span> User MGT</span></a>
+                                <a class="dropdown-item" href="panoramaManagement.html"><i class="mdi mdi-biohazard"></i><span> Panorama MGT </span></a>
+                                <a class="dropdown-item" href="messageManagement.html"><i class="ti-email"></i><span> Message MGT </span></a>
+                                <a class="dropdown-item" href="courseManagement.html"><i class="mdi mdi-wallet"></i><span> Course MGT </span></a>
+                                <a class="dropdown-item" href="settings.html"><i class="mdi mdi-settings"></i><span> Settings </span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout.html"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="float-left">
+                            <button class="button-menu-mobile open-left waves-light waves-effect">
+                                <i class="mdi mdi-menu"></i>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </nav>
+
+            </div>
+            <!-- Top Bar End -->
+
+            <div class="page-content-wrapper ">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+                                <div class="btn-group float-right">
+                                    <ol class="breadcrumb hide-phone p-0 m-0">
+                                        <li class="breadcrumb-item"><a href="#">VR360</a></li>
+                                        <li class="breadcrumb-item active">Panorama</li>
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">Panorama Management</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card bg-white m-b-30">
+                                <div class="card-body new-user">
+                                    <h5 class="header-title mb-4 mt-0">Total Panorama:<span id="totalNum"></span></h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <thead>
+                                            <tr>
+                                                <th class="border-top-0">Publisher</th>
+                                                <th class="border-top-0">Type</th>
+                                                <th class="border-top-0">State</th>
+                                                <th class="border-top-0">Photo</th>
+                                                <th class="border-top-0">Description</th>
+                                                <th class="border-top-0">Create Time</th>
+                                                <th class="border-top-0">Heart</th>
+                                                <th class="border-top-0">View</th>
+                                                <th class="border-top-0">Recommend</th>
+                                                <th class="border-top-0">Operation</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="listContainer">
+                                            <tr>
+                                                <td>
+                                                    <a class="dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                                                       aria-haspopup="false" aria-expanded="false">
+                                                        <img src="../images/source/admin-head.png" alt="user" class="rounded-circle">
+                                                    </a>
+                                                </td>
+                                                <td>单张</td>
+                                                <td>已发布</td>
+                                                <td><a href="">点击查看</a></td>
+                                                <td>这是一个描述</td>
+                                                <td>2018-09-06</td>
+                                                <td>64</td>
+                                                <td>128</td>
+                                                <td>已推荐</td>
+                                                <td>
+                                                    <button class="btn-success btn-mini" onclick="delUser(i)">通过</button>
+                                                    <button class="btn-primary btn-mini" onclick="delUser(i)">推荐</button>
+                                                    <button class="btn-warning btn-mini" onclick="delUser(i)">禁封</button>
+                                                    <button class="btn-danger btn-mini" onclick="delUser(i)">删除</button>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card m-b-30">
+                                <div class="card-body " style="padding: 1.25rem 0;overflow-x: auto;" id="pagingContainer">
+                                    <!--<div id="pagenation"></div>-->
+                                    <!--<h4 class="mt-0 header-title">Historical Bitcoin Price and Volume</h4>-->
+                                    <!--<script type="text/javascript" src="https://widgets.cryptocompare.com/serve/v1/coin/histo_week?fsym=BTC&amp;tsym=USD&amp;app=www.cryptocompare.com"></script>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end row-->
+
+                </div><!-- container -->
+
+            </div> <!-- Page content Wrapper -->
+
+        </div> <!-- content -->
+
+        <footer class="footer">
+            CopyRight © 2018 beifengtz
+        </footer>
+
+    </div>
+    <!-- End Right content here -->
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- jQuery  -->
+<script src="../vendors/jQuery/jquery-1.11.3.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/modernizr.min.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.nicescroll.js"></script>
+
+<script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+<!-- App js -->
+<script src="assets/js/app.js"></script>
+<script src="../vendors/paging/js/jquery.pagination.min.js"></script>
+<script src="../vendors/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="../vendors/galpop/jquery.galpop.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#cecece",boxzoom:true});
+        $("#boxscroll2").niceScroll({cursorborder:"",cursorcolor:"#cecece",boxzoom:true});
+    });
+
+</script>
+<script src="../build/js/admin/adminPanorama.js"></script>
+</body>
+</html>

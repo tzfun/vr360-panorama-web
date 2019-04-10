@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="images/logo/logo.ico">
+    <title>VR 360——随心创作,随处分享</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="build/css/MStyle.css">
+    <link rel="stylesheet" href="vendors/360/photo-sphere-viewer.min.css">
+    <link rel="stylesheet" href="build/css/globalStyle.css">
+    <script>
+        var Width = window.screen.width;
+        if(Width>992){
+            location.href='index.html';
+        }
+    </script>
+</head>
+<body>
+<div id="loading" align="center">
+    <img src="images/source/loading.gif" alt="加载中..." style="margin-top: 120px;">
+    <h5>3D全景加载中...</h5>
+</div>
+<div class="main">
+    <div class="header-nav">
+        <span class="logo-text">VR360</span>
+        <img src="images/source/menu.png" class="menu-btn" onclick="targetMenu()">
+        <ul class="nav-list">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="p/community.html">社区</a></li>
+            <li><a href="p/learning.html">教程</a></li>
+            <li><a href="p/create360.html">创作中心</a></li>
+            <li><a href="p/sicau360.html">川农</a></li>
+            <li><a href="p/about.html">关于</a></li>
+            <li><a href="p/message-board.html">留言墙</a></li>
+            <li><a href="p/statistics.html">数据中心</a></li>
+        </ul>
+    </div>
+    <div class="firstPage">
+        <div id="PSV_show"></div>
+        <div class="firstPageDescrp" align="center" onclick="targetGyroscope()">
+            <font>VR 360</font>
+            <h1>随心创作 &nbsp; 随处分享</h1><br><br>
+            <h3>Start making your panoramic picture on VR360.</h3><br>
+            <div id="startBtn" onclick="location.href='p/create360.html'">开始创作</div>
+            <div class="aboutMore">
+                <div class="anim-icon">
+                    <div class="about-icon icon-left"></div>
+                    <div class="about-icon icon-right"></div>
+                </div>
+                <h5 style="margin-top: 80px;">下滑了解更多</h5>
+            </div>
+        </div>
+    </div>
+    <div class="secondPage" align="center">
+        <h2><span style="font-size: 42px;">“易”</span>起创作</h2>
+        <div class="yi-box">
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/source/yishangshou.jpg" alt="易上手">
+                </div>
+                <div class="box-content">
+                    <h4 class="title">易上手</h4>
+                    <p class="description">&nbsp;&nbsp;你可能担心没有专业的相机、没有三脚架、不会PS怎么拍出优秀的全景图？不用担心！你只需要一部手机，使用相机里面的“全景”模式拍出一张长宽比例为2:1的图就可以了，上传图片即可制作全景。</p>
+                </div>
+            </div>
+        </div>
+        <div class="yi-box">
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/source/yizhizuo.jpg" alt="">
+                </div>
+                <div class="box-content">
+                    <h4 class="title">易制作</h4>
+                    <p class="description">&nbsp;&nbsp;你只需将一张全景图片上传至本站，就可以直接生成一个立体的全景图了。同时这里也提供六方位组合图全景，可以选择任一你喜欢的方式制作一张优秀的360全景图。</p>
+                </div>
+            </div>
+        </div>
+        <div class="yi-box">
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/source/yifenxiang.jpg" alt="">
+                </div>
+                <div class="box-content">
+                    <h4 class="title">易分享</h4>
+                    <p class="description">
+                        &nbsp;&nbsp;你是否苦恼不知道如何在微博或者QQ里发布360全景图片？你是否感叹拍了一张优秀的全景照片却无处分享？这些问题在这里您都将得以解决！分享到QQ、微信、微博都不是问题！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="thirdPage">
+        <div align="center" class="thirdPageContainer">
+            <br>
+            <h2 class="title_3">你可以用这样的图片来制作</h2>
+            <img src="images/demo/sola-demo-mini.jpg" alt="川农操场" class="mini-photo-playground">
+        </div>
+        <div align="center" class="thirdPageContainer">
+            <h2 class="title_3">制作成360全景效果是这样</h2>
+            <img src="images/source/phone.png" alt="手机" class="phone-model">
+            <div id="demoContainerOne"></div>
+        </div>
+    </div>
+    <div class="fourthPage" align="center">
+        <div class="demoTwo">
+            <h2>你也可以用六张不同方位图片</h2>
+            <ul class="blockList">
+                <li>
+                    <img src="images/demo/number/1.png" alt="1">
+                    <p>前景</p>
+                </li>
+                <li>
+                    <img src="images/demo/number/2.png" alt="2">
+                    <p>后景</p>
+                </li>
+                <li>
+                    <img src="images/demo/number/3.png" alt="3">
+                    <p>上景</p>
+                </li>
+            </ul>
+            <ul class="blockList">
+                <li>
+                    <img src="images/demo/number/4.png" alt="4">
+                    <p>下景</p>
+                </li>
+                <li>
+                    <img src="images/demo/number/5.png" alt="5">
+                    <p>左景</p>
+                </li>
+                <li>
+                    <img src="images/demo/number/6.png" alt="6">
+                    <p>右景</p>
+                </li>
+            </ul>
+        </div>
+        <div class="demoTwo">
+            <h2>效果就是这样</h2>
+            <div id="demoContainerTwo"></div>
+        </div>
+        <br>
+    </div>
+    <div class="fifthPage">
+        <div class="fifthPageBg">
+            <div class="fifthPage-description">
+                <h1>@关于&nbsp;&nbsp;VR 360</h1>
+                <div>
+                    <p>&nbsp;&nbsp;VR 360是一个为广大摄影爱好者和对全景图感兴趣的朋友提供的360全景图欣赏、制作、分享的平台。
+                        在这里你可以制作出你拍的优秀的全景照片，VR 360是运行在浏览器端的360全景图，不受软件的约束，只要您的设备上有浏览器就可以欣赏炫酷的360全景图了。<a href="p/about.html" style="color: whitesmoke">了解更多>></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" align="center">
+        <div class="footer-container">
+            <h1><a href="index.html">VR 360</a></h1>
+            <p>随心创作 随处分享 <a href="p/statistics.html" title="前往VR360数据中心"><img src="images/source/statistics.png"></a></p>
+            <ul>
+                <li><a href="" title="QQ" target="_blank" id="clientQQ"><img src="images/logo/qq.png" alt="qq"></a></li>
+                <li><a href="p/mywechat.html" title="微信" target="_blank"><img src="images/logo/weixin.png" alt="weixin"></a></li>
+                <li><a href="https://m.weibo.cn/p/1005056053577165" title="微博" target="_blank"><img src="images/logo/weibo.png" alt="weibo"></a></li>
+            </ul>
+            <div class="copyRight">
+                CopyRight © 2018 <a href="http://www.beifengtz.com">beifengtz</a> 蜀ICP备17034479号-1
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+<script>
+    var ip;
+    /**
+     * 获取ip地址
+     * */
+    function getIpAddress(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("get","https://vr.beifengtz.com/getIp",false);
+        xmlhttp.send();
+        if (xmlhttp.status==200)
+        {
+            ip = xmlhttp.responseText;
+        }
+    }
+</script>
+<script src="vendors/360/three.min.js"></script>
+<script src="vendors/360/D.min.js"></script>
+<script src="vendors/360/uevent.min.js"></script>
+<script src="vendors/360/doT.min.js"></script>
+<script src="vendors/360/canvasRenderer.js"></script>
+<script src="vendors/360/Projector.js"></script>
+<script src="build/js/DeviceOrientationControls.js"></script>
+<script src="vendors/360/photo-sphere-viewer.min.js"></script>
+<script src="vendors/modernizr/modernizr-custom.js"></script>
+<script src="build/js/MIndex.min.js"></script>
+</body>
+</html>

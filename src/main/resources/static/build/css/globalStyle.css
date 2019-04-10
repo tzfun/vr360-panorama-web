@@ -1,0 +1,157 @@
+/*登录样式开始*/
+.login-container{
+    display: none;
+    position: fixed;
+    z-index: 8888;
+    top:57px;
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px;
+}
+@media (max-width: 769px) {
+    .login-container{
+        top:20px;
+    }
+}
+.login-box{
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    animation: loginBoxShow 0.5s ease;
+    -o-animation: loginBoxShow 0.5s ease;
+    -moz-animation: loginBoxShow 0.5s ease;
+    -webkit-animation: loginBoxShow 0.5s ease;
+}
+.thirdLoginList img{
+    width: 35px;
+    cursor: pointer;
+}
+.thirdLoginList li{
+    list-style: none;
+    float: left;
+    margin-left: 67px;
+}
+.thirdLoginList li:nth-of-type(1){
+    margin-left: 0;
+}
+.thirdLoginList ul{
+    padding: 0;
+    width: 138px;
+    left: 50%;
+    margin-left: 0;
+    margin-top: 30px;
+}
+.login-box input,.login-box button{
+    border-radius: 0;
+}
+#bg-mask{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 6000;
+    background-color: rgba(0,0,0,0.5);
+    top:0;
+}
+#msgModal{
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    width: 200px;
+    height: 40px;
+    line-height: 20px;
+    padding: 10px;
+    background: rgba(0,0,0,0.7);
+    top: 200px;
+    color: white;
+    text-align: center;
+    left: 50%;
+    margin-left: -100px;
+}
+@keyframes loginBoxShow {
+    0%{
+        opacity: 0;
+        -webkit-transform: scale(0.6, 0.6);
+        -moz-transform: scale(0.6, 0.6);
+        -ms-transform: scale(0.6, 0.6);
+        -o-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+    }
+    50%{
+        opacity: 1;
+        -webkit-transform: scale(1.03, 1.03);
+        -moz-transform: scale(1.03, 1.03);
+        -ms-transform: scale(1.03, 1.03);
+        -o-transform: scale(1.03, 1.03);
+        transform: scale(1.03, 1.03);
+    }
+    75%{
+        opacity: 1;
+        -webkit-transform: scale(0.97, 0.97);
+        -moz-transform: scale(0.97, 0.97);
+        -ms-transform: scale(0.97, 0.97);
+        -o-transform: scale(0.97, 0.97);
+        transform: scale(0.97, 0.97);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+/*登录样式结束*/
+
+
+/*footer样式开始*/
+.footer * {
+    margin: 0;
+    padding: 0;
+}
+.footer{
+    background: #27253d;
+    color: rgb(195,195,195);
+    text-decoration: none;
+    margin: 0;
+    padding: 5px;
+}
+.footer-container h1{
+    margin: 20px auto;
+}
+.copyRight{
+    margin: 20px auto;
+}
+.footer a{
+    text-decoration: none;
+}
+.footer a,.footer p{
+    font-family: 方正兰亭超细黑简体;
+    color: white;
+    margin-top: 10px;
+}
+.footer img{
+    width: 20px;
+}
+.footer li{
+    text-align: center;
+    width: 33%;
+    list-style: none;
+    float: left;
+    border-left: 1px solid white;
+}
+.footer li:nth-of-type(1){
+    border-left: none;
+}
+.footer ul{
+    position: relative;
+    width: 300px;
+    height: 25px;
+    margin: 20px auto;
+}
+.footer-container{
+    width: 100%;
+    margin: 10px auto;
+}
+

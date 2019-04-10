@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VR 360——随心创作,随处分享</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../vendors/360/photo-sphere-viewer.min.css">
+    <link rel="stylesheet" href="../vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../vendors/jquery-confirm/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../build/css/panorama.css">
+    <style>
+        .jconfirm-holder{
+            width: 300px !important;
+            margin: auto !important;
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0c4e3834703d8f9400719f6478203d3e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div id="PSV-Container"></div>
+<!--类型切换按钮-->
+<div class="psv-btn panorama-type-btn" onclick="targetStyle()">
+    普通
+</div>
+<!--陀螺仪切换按钮-->
+<div class="psv-btn gyroscope-btn" onclick="targetGyroscope()">
+    <i class="fa fa-superpowers" aria-hidden="true"></i>
+</div>
+<!--点赞按钮-->
+<div class="psv-btn heart-btn" >
+    <div id="heart">
+        <i class="fa fa-heart" aria-hidden="true" ></i>
+    </div>
+    <div class="number-tz" id="heartNum">124</div>
+</div>
+<!--分享按钮-->
+<div class="psv-btn share-btn" >
+    <div id="share"><i class="fa fa-share-alt" aria-hidden="true" ></i></div>
+</div>
+<div class="bottom-nav-bar">
+    <img src="../images/logo/head.png" id="userHead">
+    <div class="user-box">
+        <div class="user-title" id="username">VR 360</div>
+        <div class="user-des" id="vrPhotoDes">随心创作，随处分享</div>
+    </div>
+</div>
+<div class="logo" onclick="location.href='community.html'" title="前往社区">VR 360</div>
+<div class="qrcode-container">
+    <div id="qrcode">
+
+    </div>
+</div>
+<div class="shareBox">
+    <ul id="shareBtnList">
+        <!--<li><a href="javascript:vrShare('qq')"><img src="../images/logo/qq.png" alt=""></a><br>QQ</li>-->
+        <!--<li><a href="javascript:vrShare('qzone')"><img src="../images/logo/qzone.png" alt=""></a><br>QQ空间</li>-->
+        <!--<li><a href="javascript:vrShare('weibo')"><img src="../images/logo/weibo.png" alt=""></a><br>微博</li>-->
+        <!--<li><a href="javascript:vrShare('qrcode')"><img src="../images/logo/share/qrcode_share.jpg" alt=""></a><br>二维码</li>-->
+    </ul>
+</div>
+
+<div class="nav-container" align="center">
+    <img src="../images/source/home-btn.png">
+    <ul class="menu-list">
+        <li><a href="community.html">社区 </a></li>
+        <li><a href="learning.html">教程 </a></li>
+        <li><a href="create360.html">创作中心 </a></li>
+        <li><a href="sicau360.html">川农</a></li>
+        <li><a href="about.html">关于</a></li>
+        <li><a href="message-board.html">留言墙</a></li>
+        <li><a href="statistics.html">数据中心</a></li>
+    </ul>
+</div>
+<div id="bg-mask">
+
+</div>
+<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+<script>
+    var ip;
+    /**
+     * 获取ip地址
+     * */
+    function getIpAddress(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("get","https://vr.beifengtz.com/getIp",false);
+        xmlhttp.send();
+        if (xmlhttp.status==200)
+        {
+            ip = xmlhttp.responseText;
+        }
+    }
+</script>
+<script src="../vendors/360/three.min.js"></script>
+<script src="../vendors/360/D.min.js"></script>
+<script src="../vendors/360/uevent.min.js"></script>
+<script src="../vendors/360/doT.min.js"></script>
+<script src="../vendors/360/canvasRenderer.js"></script>
+<script src="../vendors/360/Projector.js"></script>
+<script src="../build/js/DeviceOrientationControls.js"></script>
+<script src="../vendors/360/photo-sphere-viewer.min.js"></script>
+
+<script src="../vendors/jQuery/jquery-3.3.1.min.js"></script >
+<script src="../vendors/jQuery/qrcode.min.js"></script>
+<script src="../vendors/modernizr/modernizr-custom.js"></script>
+<script src="../vendors/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="../build/js/panorama.min.js"></script>
+</body>
+</html>

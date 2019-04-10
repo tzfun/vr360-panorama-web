@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/logo/logo.ico">
+    <title>无法找到资源</title>
+    <link rel="stylesheet" href="../build/css/errorStyle.css">
+</head>
+<body>
+<img src="" id="bg-img">
+<div class="bg-container" align="center">
+    <div class="msg-container">
+        <div class="msg-status">404&nbsp;error!</div>
+        <div class="msg-describe">
+            <p>暂时无法找到您查找的页面！</p>
+            <p>可能您输入的网址有误或此页面不存在</p>
+            <p>您可以选择前往首页</p>
+        </div>
+        <div class="error-button" onclick="location.href='../index.html'">前往首页</div>
+    </div>
+</div>
+<script>
+    window.onload=function(){
+        var width=window.screen.width;
+        var randomNum=Math.ceil(Math.random()*11);
+        var bgContainer=document.getElementById("bg-img");
+        if(width<=789){
+            bgContainer.setAttribute("src","../images/bg/mobile/"+randomNum+".jpg");
+        }else{
+            bgContainer.setAttribute("src","../images/bg/pc/"+randomNum+".jpg");
+        }
+        var msgContainer = document.getElementsByClassName("bg-container")[0];
+        msgContainer.style.display="block";
+    }
+</script>
+</body>
+</html>
