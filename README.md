@@ -15,7 +15,7 @@ VR360是本人大二时搭建的全景制作网站，具有全景制作、浏览
 此项目是作者java学习路上第一个相对成型的项目，结构相对简单，有逻辑不够清晰、注释不完整、耦合度高等不足之处，请各位大佬轻喷。
 </p>
 
-# 技术栈
+## 技术栈
 * 前端
     * jQuery
     * bootstrap
@@ -32,26 +32,23 @@ VR360是本人大二时搭建的全景制作网站，具有全景制作、浏览
     * OSS
     * MySQL
 
-# 安装
+## 安装
 项目后台由SpringBoot搭建，无需单独配置Tomcat，用idea或eclipse打开项目,然后配置相关参数，打包成jar文件即可运行。
-## 需配置的文件
+### 需配置的文件
 - sql文件：<a href="https://github.com/tzfun/vr360-panorama-web/blob/master/sql/vr360.sql"><img src="https://img.shields.io/badge/vr360.sql-数据库文件-blue.svg" alt="vr360.sql"></a> 
 - yml文件：<a href="https://github.com/tzfun/vr360-panorama-web/tree/master/src/main/resources/application.yml"><img src="https://img.shields.io/badge/application.yml-运行环境配置-yellow.svg" alt="application.yml"></a> <a href="https://github.com/tzfun/vr360-panorama-web/tree/master/src/main/resources/application-test.yml"><img src="https://img.shields.io/badge/application--test.yml-测试环境配置-pink.svg" alt="application-test.yml"></a> <a href="https://github.com/tzfun/vr360-panorama-web/tree/master/src/main/resources/application-dev.yml"><img src="https://img.shields.io/badge/application--dev.yml-生产环境配置-blue.svg" alt="application-dev.yml"></a>
 - OSS仓库：<a href="https://github.com/tzfun/vr360-panorama-web/blob/master/src/main/java/com/beifengtz/vr360/util/OssUtil.java"><img src="https://img.shields.io/badge/OssUtil.java-OSS工具类-red.svg" alt="OssUtil.java"></a> 
 - QQ、微博三方登录：<a href="https://github.com/tzfun/vr360-panorama-web/blob/master/src/main/java/com/beifengtz/vr360/util/ThirdAuthorUtil.java"><img src="https://img.shields.io/badge/ThirdAuthorUtil.java-三方登录工具类-purple.svg" alt="ThirdAuthorUtil.java"></a> 
 
-# 联系我
+## 联系我
  <a href="http://www.beifengtz.com"><img src="https://img.shields.io/badge/个人网站-www.beifengtz.com-olive--green.svg" alt="www.beifengtz.com"></a> 
  <a href="#"><img src="https://img.shields.io/badge/QQ-1246886075-red.svg" alt="www.beifengtz.com"></a>
  <a href="https://vr.beifengtz.com/p/mywechat.html"><img src="https://img.shields.io/badge/微信-tzbieyang-blue.svg" alt="www.beifengtz.com"></a>
 
-# 关于
+## 关于
 本平台不使用与商用，如果站内使用图片或资源涉及到侵权及他人利益，请联系作者及时处理。
 
 如果您需使用此开源项目，请注明出处或添加友链或联系作者本人。
 
-# 感谢
+## 感谢
 - photo-sphere-viewer.js
-<a href="https://photo-sphere-viewer.js.org/" target="_blank">
-	<img src="https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif" width="30"/>
-</a>
