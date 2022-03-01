@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://vr.beifengtz.com/"><img src="https://img.shields.io/badge/view-预览效果-brightgreen.svg" alt="首页"></a>
+  <a href="http://vr.beifengtz.com/"><img src="https://img.shields.io/badge/view-预览效果-brightgreen.svg" alt="首页"></a>
   <a href="#联系我"><img src="https://img.shields.io/badge/contact-联系作者-blue.svg" alt="微信群"></a>
   <a href="#关于"><img src="https://img.shields.io/badge/about-关于平台-critical.svg" alt="关于平台"></a>
 
@@ -42,8 +42,8 @@ VR360是本人大二时搭建的全景制作网站，具有全景制作、浏览
 
 ## 联系我
  <a href="http://www.beifengtz.com"><img src="https://img.shields.io/badge/个人网站-www.beifengtz.com-olive--green.svg" alt="www.beifengtz.com"></a> 
- <a href="#"><img src="https://img.shields.io/badge/QQ-1246886075-red.svg" alt="www.beifengtz.com"></a>
- <a href="https://vr.beifengtz.com/p/mywechat.html"><img src="https://img.shields.io/badge/微信-tzbieyang-blue.svg" alt="www.beifengtz.com"></a>
+ <a href="#"><img src="https://img.shields.io/badge/QQ-联系我-red.svg" alt="www.beifengtz.com"></a>
+ <a href="https://vr.beifengtz.com/p/mywechat.html"><img src="https://img.shields.io/badge/微信-beifengtz-blue.svg" alt="www.beifengtz.com"></a>
 
 ## 关于
 本平台不使用与商用，如果站内使用图片或资源涉及到侵权及他人利益，请联系作者及时处理。
